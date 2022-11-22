@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 const ModalWindow = ({ open, close, date }) => {
+  const [text, setText] = useState("");
+  const [day, setDay] = useState("");
   const handlePost = () => {
     axios
       .post("http://localhost:8080/dates/add", {
-        title: "test",
-        content: "2022-11-30",
+        title: text,
+        content: date,
       })
-      .then((res) => console.log(res))
+      .then((res) => {})
       .catch((res) => console.log(res));
   };
   return (
@@ -30,6 +32,10 @@ const ModalWindow = ({ open, close, date }) => {
                 <Form.Label>제목</Form.Label>
                 <Form.Control
                   type="text"
+                  name="title"
+                  onChange={(e) => {
+                    setText(e.target.value);
+                  }}
                   placeholder="제목을 입력해주세요."
                   autoFocus
                 />
@@ -39,7 +45,14 @@ const ModalWindow = ({ open, close, date }) => {
                 controlId="exampleForm.ControlTextarea1"
               >
                 <Form.Label>날짜</Form.Label>
-                <Form.Control type="text" defaultValue={date} />
+                <Form.Control
+                  type="text"
+                  name="content"
+                  onChange={(e) => {
+                    setDay(e.target.value);
+                  }}
+                  defaultValue={date}
+                />
               </Form.Group>
             </Form>
           </Modal.Body>
