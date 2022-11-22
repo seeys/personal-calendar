@@ -15,13 +15,16 @@ const ButtonItem = styled.div`
 `;
 const TodayItem = styled.div`
   font-size: 30px;
+  margin: 0 20px;
 `;
-const Header = () => {
+const Header = ({ year, month }) => {
   return (
     <div>
       <ButtonContainer>
         <ButtonItem>&lt;</ButtonItem>
-        <TodayItem>오늘</TodayItem>
+        <TodayItem>
+          {year}년 {month}월
+        </TodayItem>
         <ButtonItem>&gt;</ButtonItem>
       </ButtonContainer>
     </div>
