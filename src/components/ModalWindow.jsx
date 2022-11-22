@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-const ModalWindow = ({ open, close }) => {
+const ModalWindow = ({ open, close, date }) => {
   const handlePost = () => {
     axios
       .post("http://localhost:8080/dates/add", {
@@ -39,7 +39,7 @@ const ModalWindow = ({ open, close }) => {
                 controlId="exampleForm.ControlTextarea1"
               >
                 <Form.Label>날짜</Form.Label>
-                <Form.Control type="text" placeholder="0000-00-00" />
+                <Form.Control type="text" defaultValue={date} />
               </Form.Group>
             </Form>
           </Modal.Body>

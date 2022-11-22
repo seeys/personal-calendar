@@ -12,7 +12,9 @@ const Container = styled.div`
 `;
 const Main = () => {
   const [open, setOpen] = useState(false);
-  const handleShow = () => {
+  const [selectDate, setSelectDate] = useState("");
+  const handleShow = (event) => {
+    setSelectDate(event.dateStr);
     setOpen(true);
   };
   const handleClose = () => {
@@ -26,7 +28,7 @@ const Main = () => {
         dateClick={handleShow}
         events={[{ title: "event1", date: "2022-11-24" }]}
       />
-      <ModalWindow open={open} close={handleClose} />
+      <ModalWindow open={open} close={handleClose} date={selectDate} />
     </Container>
   );
 };
