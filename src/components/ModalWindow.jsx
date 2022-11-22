@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -7,14 +7,18 @@ import axios from "axios";
 const ModalWindow = ({ open, close, date }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
+
   const handlePost = () => {
     axios
       .post("http://localhost:8080/dates/add", {
         title: text,
         content: date,
       })
-      .then((res) => {})
-      .catch((res) => console.log(res));
+      .then((res) => {
+        close();
+        window.location.replace("/");
+      })
+      .catch((err) => console.log(err.message));
   };
   return (
     <div>
