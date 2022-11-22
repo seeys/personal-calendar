@@ -1,16 +1,27 @@
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
 import React from "react";
-import Body from "../components/Body";
-import Header from "../components/Header";
-
+import styled from "styled-components";
+import "./Main.css";
+const Container = styled.div`
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+`;
 const Main = () => {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
+  const handleDateClick = (event) => {
+    console.log(event.dayEl);
+  };
   return (
-    <div>
-      <Header year={year} month={month} />
-      <Body />
-    </div>
+    <Container>
+      <FullCalendar
+        defaultView="dayGridMonth"
+        plugins={[dayGridPlugin, interactionPlugin]}
+        dateClick={handleDateClick}
+        events={[{ title: "event1", date: "2022-11-24" }]}
+      />
+    </Container>
   );
 };
 

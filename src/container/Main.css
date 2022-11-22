@@ -1,0 +1,9 @@
+.fc-daygrid-day-frame:hover {
+  background-color: #e7f5ff;
+}
+.fc-day-sun a {
+  color: #f03e3e;
+}
+.fc-day-sat a {
+  color: #1c7ed6;
+}
