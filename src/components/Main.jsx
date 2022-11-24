@@ -6,7 +6,7 @@ import styled from "styled-components";
 import "./Main.css";
 import ModalWindow from "./ModalWindow";
 import axios from "axios";
-import e from "cors";
+
 const Container = styled.div`
   width: 800px;
   height: 600px;
@@ -27,7 +27,12 @@ const Main = () => {
     axios("http://localhost:8080/dates").then((res) => {
       const data = res.data;
       data.forEach((item) => {
-        const event = { title: item.title, date: item.content };
+        const event = {
+          title: item.title,
+          start: item.start,
+          end: item.end,
+          color: item.color,
+        };
         setEvents((e) => [...e, event]);
       });
     });

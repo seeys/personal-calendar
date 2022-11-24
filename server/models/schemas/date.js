@@ -6,7 +6,15 @@ const DateSchema = new Schema(
       type: String,
       required: true,
     },
-    content: {
+    start: {
+      type: String,
+      required: true,
+    },
+    end: {
+      type: String,
+      required: true,
+    },
+    color: {
       type: String,
       required: true,
     },

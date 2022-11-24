@@ -13,8 +13,8 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/add", async (req, res) => {
-  const { title, content } = req.body;
-  const event = await Date.create({ title, content });
+  const { title, start, end, color } = req.body;
+  const event = await Date.create({ title, start, end, color });
   res.json(event);
 });
 
