@@ -7,3 +7,6 @@
 .fc-day-sat a {
   color: #1c7ed6;
 }
+.fc-button-group .fc-prev-button {
+  margin-right: 10px;
+}

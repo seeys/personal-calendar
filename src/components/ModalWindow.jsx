@@ -99,10 +99,10 @@ const ModalWindow = ({ open, close, date }) => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={close}>
-              Close
+              닫기
             </Button>
             <Button variant="primary" onClick={handlePost}>
-              Save Changes
+              저장
             </Button>
           </Modal.Footer>
         </Modal>

@@ -9,8 +9,15 @@ import axios from "axios";
 
 const Container = styled.div`
   width: 800px;
-  height: 600px;
   margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  @media screen and (max-width: 500px) {
+    width: auto;
+    .fc {
+      height: 100vh;
+    }
+  }
 `;
 const Main = () => {
   const [open, setOpen] = useState(false);
