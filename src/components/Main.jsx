@@ -30,6 +30,7 @@ const Main = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleEvent = () => {};
   useEffect(() => {
     axios("http://localhost:8080/dates").then((res) => {
       const data = res.data;
@@ -50,6 +51,7 @@ const Main = () => {
         defaultView="dayGridMonth"
         plugins={[dayGridPlugin, interactionPlugin]}
         dateClick={handleShow}
+        eventClick={handleEvent}
         events={events}
       />
       <ModalWindow open={open} close={handleClose} date={selectDate} />

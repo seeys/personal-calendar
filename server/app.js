@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
-mongoose.connect("mongodb://localhost:27017/calendar");
+mongoose.connect(process.env.REACT_APP_MONGO_URL);
 
 mongoose.connection.on("connected", () => {
   console.log("MongoDB Connected");
