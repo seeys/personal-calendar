@@ -1,16 +1,14 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
-mongoose.connect(process.env.REACT_APP_MONGO_URL);
+mongoose.connect("mongodb://localhost:27017/calendar");
 
 mongoose.connection.on("connected", () => {
   console.log("MongoDB Connected");
 });
 
 const app = express();
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+
 app.listen(8080, function () {
   console.log("open 8080");
 });
@@ -23,5 +21,6 @@ let corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 const dateRouter = require("./routes/dates");
 app.use("/dates", dateRouter);

@@ -32,7 +32,7 @@ const Main = () => {
   };
   const handleEvent = () => {};
   useEffect(() => {
-    axios("http://3.91.133.1:8080/dates").then((res) => {
+    axios("http://localhost:8080/dates").then((res) => {
       const data = res.data;
       console.log(res);
       data.forEach((item) => {
