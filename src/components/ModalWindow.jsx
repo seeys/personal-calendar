@@ -17,7 +17,7 @@ const ModalWindow = ({ open, close, date }) => {
 
   const handlePost = () => {
     axios
-      .post("http://localhost:8080/dates/add", {
+      .post("http://3.91.133.1:8080/dates/add", {
         title: text,
         start: startday ? startday : date,
         end: endDay ? endDay + 1 : date,
