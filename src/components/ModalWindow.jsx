@@ -17,11 +17,13 @@ const ModalWindow = ({ open, close, date }) => {
 
   const handlePost = () => {
     axios
-      .post("http://localhost:8080/dates/add", {
+      .post("http://localhost:8000/dates/add", {
         title: text,
         start: startday ? startday : date,
         end: endDay
-          ? new Date(new Date(endDay).setDate(new Date(endDay).getDate()))
+          ? new Date(new Date(endDay).setDate(new Date(endDay).getDate() + 1))
+              .toISOString()
+              .slice(0, 10)
           : date,
         color: option ? option : "#f03e3e",
       })
