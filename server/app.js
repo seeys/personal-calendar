@@ -1,15 +1,16 @@
 const mongoose = require("mongoose");
+require("dotenv/config");
 const express = require("express");
 const cors = require("cors");
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect("mongodb://localhost:27017/calendar");
 
 mongoose.connection.on("connected", () => {
   console.log("MongoDB Connected");
 });
-
+const PORT = process.env.PORT || 5000;
 const app = express();
-app.listen(8080, function () {
-  console.log("open 8080");
+app.listen(PORT, function () {
+  console.log("open ");
 });
 
 let corsOptions = {
@@ -19,5 +20,10 @@ let corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// app.use(express.static(path.join(__dirname, "../client/build")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+});
 const dateRouter = require("./routes/dates");
 app.use("/dates", dateRouter);
